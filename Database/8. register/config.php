@@ -17,7 +17,7 @@
     }
 
     if($conn){
-        echo "Connected to the database! <br>";
+        //echo "Connected to the database! <br>";
     }
 
 
