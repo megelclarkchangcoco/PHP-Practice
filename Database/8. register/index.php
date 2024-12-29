@@ -38,13 +38,19 @@
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO users (user, password) VALUES ('$username', '$hash')";
             
-           // mysqli_query($conn, $sql);
-            echo "User registered successfully!";
+            try{
+                mysqli_query($conn, $sql);
+                echo "User registered successfully!";
+            }
+            catch(mysqli_sql_exception $e){
+                echo "That username is taken";
+            }
+
         }
 
 
 
     }
 
-    //mysqli_close($conn); // Uncomment this line if $conn is defined in config.php
+    mysqli_close($conn); // Uncomment this line if $conn is defined in config.php
 ?>
